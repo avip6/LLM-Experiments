@@ -4,8 +4,8 @@ This code provides a few simple examples of how to use large language models (LL
 LLMs are a type of artificial intelligence (AI) that can generate text, translate languages, write different kinds of content, and answer user's questions in an informative way.
 
 * **Text generation:** This example shows how to use an LLM to generate a name of a child.
-* **Translation:** This example shows how to use an LLM to translate text from one language to another.
-* **Summarization:** This example shows how to use an LLM to summarize text.
+* **Prompt and User inputs:** Prompts are an important building block of LLM applications. This extends the previous text generation with prompts.
+
 """
 
 import os
@@ -21,8 +21,21 @@ load_dotenv()
 
 def simple_text_prediction():
     llm = OpenAI(temperature=0.8)
-    text = "What is a good name for a baby boy that has a universal name and appeals to everyone?"
+    text = "What is a good name for a baby boy in Australia?"
     return llm(text)
 
 
+def introduction_to_prompt():
+    prompt = PromptTemplate(
+        input_variables=["country"],
+        template="What is a good name for a baby boy in {country}?",
+    )
+    return prompt.format(country='China')
+
+
+# example 1:
 print(simple_text_prediction())
+
+# example 2: Extend with prompt
+
+print(introduction_to_prompt())

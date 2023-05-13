@@ -12,6 +12,7 @@ import os
 from dotenv import load_dotenv                              # to open env files
 from langchain.llms import OpenAI
 from langchain.prompts import PromptTemplate                # for prompting
+from langchain.chains import LLMChain
 
 load_dotenv()
 
@@ -26,16 +27,18 @@ def simple_text_prediction():
 
 
 def introduction_to_prompt():
+    llm = OpenAI(temperature=0.9)
     prompt = PromptTemplate(
         input_variables=["country"],
         template="What is a good name for a baby boy in {country}?",
     )
-    return prompt.format(country='China')
+    # prompt.format(country="China")
+    chain = LLMChain(llm=llm, prompt=prompt)
+    return chain.run("Australia")
 
 
 # example 1:
 print(simple_text_prediction())
 
 # example 2: Extend with prompt
-
 print(introduction_to_prompt())

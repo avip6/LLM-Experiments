@@ -6,3 +6,9 @@ In case you did not know, LLMs are a type of artificial intelligence (AI) that c
 
 - **Text generation:** This example shows how to use an LLM to generate a name of a child.
 - **Prompt and User inputs:** Prompts are an important building block of LLM applications. This extends the previous text generation with prompts.
+
+## How to use it
+
+1. use a virtual environment to create new environrment
+2. install the requirements (`pip install -r requirements.txt`)
+3. Now you can run the app.py

@@ -162,3 +162,7 @@ cython_debug/
 .vscode
 .vscode/
 vscode/
+
+# folders
+DS_Store
+.DS_Store
